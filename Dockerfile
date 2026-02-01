@@ -25,6 +25,7 @@ RUN npm install \
     && npm run build \
     && composer install \
     && composer update \
+    && php artisan key:generate \
     && php artisan optimize \
     && php artisan migrate --force
 
