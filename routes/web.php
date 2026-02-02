@@ -69,7 +69,23 @@ Route::get('/leaderboard', function (Request $request) {
 
 Route::post('/nicknames', function (Request $request) {
     $data = $request->validate([
-        'nickname' => ['required', 'string', 'min:2', 'max:50'],
+        'nickname' => [
+            'required',
+            'string',
+            'min:2',
+            'max:50',
+            function (string $attribute, mixed $value, callable $fail) {
+                $normalizedNickname = mb_strtolower((string) $value, 'UTF-8');
+
+                $exists = Nickname::query()
+                    ->whereRaw('LOWER(nickname) = ?', [$normalizedNickname])
+                    ->exists();
+
+                if ($exists) {
+                    $fail('Такой никнейм уже существует');
+                }
+            },
+        ],
         'comment' => ['nullable', 'string', 'max:255'],
     ]);
 
