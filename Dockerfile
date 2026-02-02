@@ -4,8 +4,6 @@ WORKDIR /app
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-        git \
-        unzip \
         libsqlite3-dev \
         sqlite3 \
         curl \
