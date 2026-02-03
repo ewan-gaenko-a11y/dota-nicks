@@ -1,4 +1,4 @@
-import { PageShell } from "@/components/PageShell";
+import { Layout } from "@/components/Layout";
 import { Panel } from "@/components/Panel";
 import { NicknameInfoModal } from "@/components/NicknameInfoModal";
 import { Head, Link, router, usePage } from "@inertiajs/react";
@@ -58,7 +58,7 @@ export default function leaderboard() {
                     content="Поиск лучших никнеймов для Dota 2. Здесь вы сможете найти себе псевдоним для доты и не только."
                 />
             </Head>
-            <PageShell>
+            <Layout>
                 <Panel className="space-y-3">
                     <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
                         <div className="space-y-2">
@@ -196,7 +196,7 @@ export default function leaderboard() {
                     nickname={activeNickname}
                     onClose={() => setActiveNickname(null)}
                 />
-            </PageShell >
+            </Layout >
         </>
     )
 }

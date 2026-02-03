@@ -1,8 +1,8 @@
 import { Head, Link, useForm, usePage } from '@inertiajs/react';
 import type { FormEvent } from 'react';
 
-import { PageShell } from '../components/PageShell';
-import { Panel } from '../components/Panel';
+import { Layout } from '@/components/Layout';
+import { Panel } from '@/components/Panel';
 
 type PageProps = {
     auth: { user: { name?: string } | null };
@@ -39,7 +39,7 @@ export default function NicknameSuggestion() {
                     content="Предложи новый никнейм для Dota 2 и добавь комментарий. Все заявки проходят модерацию."
                 />
             </Head>
-            <PageShell>
+            <Layout>
                 <Panel className="space-y-3">
                     <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
                         <div className="space-y-2">
@@ -104,7 +104,7 @@ export default function NicknameSuggestion() {
                         </form>
                     </Panel>
                 </section>
-            </PageShell>
+            </Layout>
         </>
     );
 }

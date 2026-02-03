@@ -1,7 +1,7 @@
 import { Head, router, usePage } from "@inertiajs/react";
 import { useState } from "react";
 
-import { PageShell } from "@/components/PageShell";
+import { Layout } from "@/components/Layout";
 import { Panel } from "@/components/Panel";
 
 type PendingNickname = {
@@ -32,7 +32,7 @@ export default function Admin() {
     return (
         <>
             <Head title="Админ" />
-            <PageShell>
+            <Layout>
                 <Panel className="space-y-3">
                     <div className="space-y-2">
                         <h1 className="text-3xl font-semibold text-white">Панель управления</h1>
@@ -106,7 +106,7 @@ export default function Admin() {
                         </div>
                     )}
                 </Panel>
-            </PageShell>
+            </Layout>
         </>
     );
 }

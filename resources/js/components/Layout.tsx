@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { cn } from '../lib/utils';
 import { twMerge } from 'tailwind-merge';
 
-type PageShellProps = PropsWithChildren<{
+type LayoutProps = PropsWithChildren<{
     tag?: string;
     rightSlot?: ReactNode;
     mainClassName?: string;
@@ -26,7 +26,7 @@ const navigationLinks = [
     },
 ];
 
-export function PageShell({ rightSlot, mainClassName, children }: PageShellProps) {
+export function Layout({ rightSlot, mainClassName, children }: LayoutProps) {
     const { url, props } = usePage();
     const user = (props as { auth?: { user?: { name?: string } | null } })?.auth?.user;
     const links = user

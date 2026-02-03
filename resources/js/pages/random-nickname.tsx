@@ -1,9 +1,9 @@
 import { Head, Link, router, usePage } from '@inertiajs/react';
 import { useState } from 'react';
 
-import { PageShell } from '../components/PageShell';
-import { Panel } from '../components/Panel';
-import { NicknameInfoModal } from '../components/NicknameInfoModal';
+import { Layout } from '@/components/Layout';
+import { Panel } from '@/components/Panel';
+import { NicknameInfoModal } from '@/components/NicknameInfoModal';
 
 type RandomNickname = {
     id: number;
@@ -42,7 +42,7 @@ export default function RandomNickname() {
                     content="Получи случайный ник для Dota 2, или предложи свой вариант. На сайте никнеймы для доты или для какой игры вам там надо."
                 />
             </Head>
-            <PageShell>
+            <Layout>
                 <Panel className="space-y-3">
                     <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
                         <div className="space-y-2">
@@ -112,7 +112,7 @@ export default function RandomNickname() {
                         </div>
                     )}
                 </Panel>
-            </PageShell>
+            </Layout>
             <NicknameInfoModal
                 isOpen={Boolean(activeNickname)}
                 nickname={activeNickname}
