@@ -1,0 +1,22 @@
+services:
+  dotanicks:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: prod
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      - SERVER_NAME=${SERVER_NAME}
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+      - database:/app/database
+
+volumes:
+  caddy_data:
+  caddy_config:
+  database:
