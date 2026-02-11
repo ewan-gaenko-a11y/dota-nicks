@@ -29,6 +29,8 @@ RUN apt-get update \
         libsqlite3-dev \
         sqlite3 \
         curl \
+        git \
+        unzip \
     && docker-php-ext-install pdo pdo_sqlite pcntl
 
 COPY . .
