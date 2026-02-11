@@ -95,7 +95,7 @@ Route::post('/nicknames', function (Request $request) {
         'verified' => false,
     ]);
 
-    return back(303);
+    return back();
 })->middleware('throttle:nickname-create');
 
 Route::middleware('auth')->group(function () {
