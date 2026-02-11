@@ -42,7 +42,8 @@ COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
 
 RUN composer install --no-dev --no-progress --prefer-dist \
     && npm install \
-    && npm run build \
-    && rm -rf node_modules
+    && npm run build:ssr \
+    && rm -rf node_modules \
+    && php artisan key:generate
 
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
