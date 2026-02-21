@@ -44,7 +44,8 @@ RUN composer install --no-dev --no-progress --prefer-dist \
     && npm install \
     && npm run build:ssr \
     && rm -rf node_modules \
-    && php artisan key:generate \
-    && php artisan inertia:start-ssr &
+    && php artisan key:generate
+
+RUN php artisan inertia:start-ssr &
 
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
