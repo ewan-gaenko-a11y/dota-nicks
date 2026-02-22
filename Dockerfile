@@ -44,6 +44,8 @@ RUN composer install --no-dev --no-progress --prefer-dist \
     && npm install \
     && npm run build:ssr \
     && rm -rf node_modules \
+    && touch ./database/database.sqlite \
+    && php artisan migrate --force \
     && php artisan key:generate
 
 RUN php artisan inertia:start-ssr &
